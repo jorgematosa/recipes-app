@@ -6,7 +6,7 @@ Front-end, as requested, was developed using angular.
 For backend, I used NodeJS and Firebase to use a database.
 To deploy the application, I used Google Cloud Platform and deployed the api and app container in 2 Kubernetes pods.
 
-App-server: http://http://34.66.204.33/
+App-server: http://34.66.204.33/
 NodeJS server: http://35.232.231.196:3000/api/recipes-book/
 
 # To Do

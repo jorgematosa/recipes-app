@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  ustwo-api:
+    image: ustwo-tech-exe-api:v1
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info 
+      - NODE_CONFIG_DIR=./config
+    ports:
+      - "3000:3000"

@@ -1,0 +1,52 @@
+<div class="title">Recipes list</div>
+<mat-form-field class="filter">
+  <input
+    matInput
+    placeholder="Search Recipe by name"
+    (keyup.enter)="filterRecipesByName()"
+    [formControl]="recipeNameSearchForm"
+  />
+  <mat-hint align="start">Enter to search</mat-hint>
+</mat-form-field>
+<button mat-raised-button class="show-favourites" (click)="filterRecipesByFavourite()">
+  Show only favourites
+</button>
+
+<div class="recipes-container">
+  <mat-accordion class="recipes-list">
+    <mat-expansion-panel *ngFor="let recipe of filteredRecipes">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="recipe-name">
+            {{ recipe[0].name }}
+            <mat-icon *ngIf="recipe[0].isFavourite">stars</mat-icon>
+          </div>
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ recipe[0].description }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="recipe-content">
+        <div class="recipe">
+          <div class="cooking-steps">What to do</div>
+          {{ recipe[0].cookingSteps }}
+          <div class="ingredients-list">Ingredients</div>
+          <div
+            class="ingredients"
+            *ngFor="let ingredient of recipe[0].ingredients"
+          >
+            {{ ingredient.name }} ({{ ingredient.quantity }})
+          </div>
+        </div>
+        <div class="recipe-image-container">
+          <button mat-raised-button (click)="favourites(recipe)">
+            <span *ngIf="!recipe[0].isFavourite">Add to favourties</span>
+            <span *ngIf="recipe[0].isFavourite">Remove from favourties</span>
+          </button>
+          <img src="{{ recipe[0].imageSrc }}" class="recipe-image" />
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

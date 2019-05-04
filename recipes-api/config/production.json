@@ -1,0 +1,10 @@
+{
+    "server": {
+        "port": "3000",
+        "loglevel": "info"
+    },
+    "api": {
+        "api_url": "/api/recipes-book/",
+        "recipes": "recipes"
+    }
+}
